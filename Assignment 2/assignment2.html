@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 2</title>
+    <style>
+        .headPage{
+            background-color: black;
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        .headPage p{
+            background-color: blue;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .headPage p span{
+            background-color: black;
+            color: white;
+            padding: 5px;
+            margin: 10px
+        }
+        .headPage p a{
+            background-color: black;
+            color: white;
+            padding: 5px;
+            text-decoration: none;
+        }
+        .ChildHeaders{
+            text-align: center;
+            color: red;
+            background-color: aqua;
+            border: solid 10px green;
+        }
+        ul{
+            background-color: blue;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 25px;
+            list-style-type: square;
+        }
+        ul li{
+            border: 1px solid;
+            list-style-position: outside;
+            background-color: aquamarine;
+            margin: 3px 6px;
+        }
+        #tbl, #tbl th, #tbl td{
+            border: solid 1px;
+            border-collapse: collapse;
+        }
+        #tbl{
+            width: 100%;
+        }
+        #tbl th{
+            text-align: left;
+            background-color: yellow;
+        }
+        #tbl td:hover{
+            background-color: aqua;
+        }
+        img{
+            border-radius: 10px;
+            display:block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="headPage">
+        <h1 style="color: white;">My Beginner's Project</h1>
+        <p><span>home</span><a href="signUpForm.html" target="_blank">sign up</a><span>Contact</span></p>
+    </div>
+    <div>
+        <h1 class = "ChildHeaders">Welcome to my website</h1>
+        <img src="dicePic.jfif" alt="This is a dice Picture">
+        <p style="text-align: center;">This is a simple project designed for beginners to practice HTML and CSS</p>
+        <h1 class = "ChildHeaders">Features</h1>
+        <ul>
+            <li>Margin</li>
+            <li>Padding</li>
+            <li>Background Color</li>
+            <li>Background Image</li>
+            <li>Borders</li>
+            <li>Lists</li>
+            <li>Tables</li>
+            <li>Links</li>
+            <li>Positioning(Relative)</li>
+        </ul>
+
+        <h1 class = "ChildHeaders">Sample Table</h1>
+        <table id="tbl">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Occupation</th>
+            </tr>
+            <tr>
+                <td>John Doe</td>
+                <td>25</td>
+                <td>Web Developer</td>
+            </tr>
+            <tr>
+                <td>Jane Smith</td>
+                <td>30</td>
+                <td>Graphic Designer</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
