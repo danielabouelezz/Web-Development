@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GridExample</title>
+    <style>
+        body{
+            background-color: black;
+            padding: 10px;
+            border: 1px solid black;
+        }
+        .Page{
+            display: grid;
+            grid-template-columns: 40% 60%;
+        }
+        .leftPart{
+            background-color:color-mix(in srgb-linear, blue 80%, white 20%);
+            display: grid;
+            height: 600px;
+            grid-template-rows: 15% 70% 15%;
+            grid-gap: 2px;
+        }
+        .header{
+            grid-row-start: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            text-align: center;
+            
+        }
+        .TotalPrice{
+            height: 100%;
+            align-content: center;
+            border: 1px black solid;
+        }
+        .table{
+            grid-row-start: 2;
+            background-color: antiquewhite;
+            border: solid 4px black
+        }
+        #tbl, #tbl th, #tbl td{
+            border: solid 1px;
+            border-collapse: collapse;
+        }
+        #tbl{
+            width: 100%;
+        }
+        #tbl th{
+            height: 30px;
+            background-color: lightskyblue;
+        }
+        #tbl td:hover{
+            background-color: darkcyan;
+        }
+        #tbl td{
+            height: 30px;
+        }
+        tr{
+            height: 30px;
+        }
+        .bottom{
+            grid-row-start: 3;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            text-align: center;
+        }
+        .result{
+            border: solid 1px black;
+            height: 100%;
+            align-content: center;
+        }
+        .rightPart{
+            background-color:beige;
+            display: grid;
+            grid-template-rows: 15% 85%;
+            height: 600px;
+            background-color: darkcyan;
+        }
+        .RH{
+            display: flex;
+            color: white;
+            justify-content: space-between;
+            border: solid 1px black;
+            background-color:dodgerblue;
+            align-items: center;
+        }
+        #Name{
+            padding-right: 10px;
+            font-size: 25px;
+        }
+        .itemsContainer{
+            display: grid;
+            grid-template-columns: auto auto auto auto auto auto;
+            grid-gap: 4px;
+        }
+        #item1{
+            grid-row: span 2;
+            grid-column: span 2;
+        }
+        #item2{
+            grid-column: span 2;
+        }
+        #item3{
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+    <main class = "Page">
+        <section class = "leftPart">
+            <div class = "header">
+                <div class = "TotalPrice div1">Price</div>
+                <div class = "TotalPrice div2">price</div>
+            </div>
+            <div class = "table">
+                <table id = "tbl">
+                    <tr>
+                        <th>QTY</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Pepsi</td>
+                        <td>$1</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Pepsi</td>
+                        <td>$1</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Pepsi</td>
+                        <td>$1</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Pepsi</td>
+                        <td>$1</td>
+                    </tr>
+                </table>
+            </div>
+            <div class = "bottom">
+                <div class = "result subTotal">subP</div>
+                <div class = "result savings">savings</div>
+                <div class = "result tax">tax</div>
+            </div>
+        </section>
+
+        <section class = "rightPart">
+            <div class = "rightHeader">
+                <div class = "RH"> 
+                    <p>Mon, 4/4/4444 12:12 AM</p>
+                    <p id = "Name">RASHID MARKET</p>
+                </div>
+            </div>
+            <div class = "itemsContainer">
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button id = "item3" class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button id = "item1" class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button class = "item">Item</button>
+                <button id = "item2" class = "item">Item</button>
+                
+            </div>
+        </section>
+    </main>
+</body>
+</html>
