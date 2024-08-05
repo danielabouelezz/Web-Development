@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .Calculator{
+            height: auto;
+            width: 370px;
+            background-color: black;
+        }
+        .result{
+            width: 100%;
+            height: 15%;
+            background-color: black;
+            color: white;
+            box-sizing: border-box;
+            font-size: 32px;
+        }
+        .buttons{ 
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+        }
+        #operator{
+            background-color: yellow;
+            font-size: 25px;
+        }
+        .buttons button{
+            height: 40px;
+            background-color: white;
+            font-size: auto;
+        } 
+        
+        #equal{
+            grid-column-start: 4;
+            grid-row: 3/6;
+            height: auto;
+            width: auto;
+        }
+        #addons{
+            background-color: orange;
+            grid-column: 2/4;
+        }
+    </style>
+</head>
+<body>
+    <div class = "Calculator">
+        <input type="text" class = "result" id = "screen" readonly value="">
+        <div class = "buttons">
+            <button onclick="appendValue('+')" id = "operator">+</button>
+            <button onclick="appendValue('-')" id = "operator">-</button>
+            <button onclick="appendValue('*')" id = "operator">x</button>
+            <button onclick="appendValue('/')" id = "operator">÷</button>
+            <button onclick="appendValue(1)">1</button>
+            <button onclick="appendValue(2)">2</button>
+            <button onclick="appendValue(3)">3</button>
+            <button onclick="backspace()">&#8592;</button>
+            <button onclick="appendValue(4)">4</button>
+            <button onclick="appendValue(5)">5</button>
+            <button onclick="appendValue(6)">6</button>
+            <button onclick="appendValue(7)">7</button>
+            <button onclick="appendValue(8)">8</button>
+            <button onclick="appendValue(9)">9</button>
+            <button onclick="appendValue(0)">0</button>
+            <button onclick="clearScreen()" id = "addons">C</button>
+            <button onclick="getAnswer()" id = "equal">=</button>
+        </div>
+    </div>
+
+    <script>
+        const screen = document.getElementById("screen");
+
+        function appendValue(n){
+            if(isOperator(n) && isOperator(screen.value[screen.value.length-1])){
+                return;
+            }
+            screen.value += n;
+        }
+
+        function clearScreen(){
+            screen.value = "";
+        }
+
+        function backspace(){
+            screen.value = screen.value.slice(0, -1);
+        }
+
+        function getAnswer(){
+            if(isOperator(screen.value[screen.value.length-1])){
+                return;
+            }
+            screen.value = eval(screen.value);
+        }
+
+        function isOperator(c){
+            return(c == "+" || c == "-" || c == "*" || c == "/")
+        }
+    </script>
+</body>
+</html>
