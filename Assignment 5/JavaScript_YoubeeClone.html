@@ -18,7 +18,7 @@
             justify-content: space-between;
             z-index: 2;
         }
-        .singleLinks:hover{
+        .hoverable:hover{
             color : green;
         }
         #logo{
@@ -180,7 +180,8 @@
             border: solid 1px black;
             padding-right: 10px;
             padding-left: 10px;
-            animation-delay: 200ms; 
+        }
+        .animate{
             animation: 3s fadeInUp  forwards;
         }
 
@@ -213,11 +214,11 @@
         </div>
         <div id = "links">
             <ul id = "links-list">
-                <li><a href = "#brandDesign" class = "singleLinks">HOME</a></li>
-                <li><a href = "#briefSummaries"  class = "singleLinks">SERVICES</a></li>
-                <li><a href = "#Contact" class = "singleLinks">CONTACT</a></li>
-                <li><a href = "#AvailableCourse" class = "singleLinks">AVAILABLE COURSES</a></li>
-                <li><a class = "singleLinks">LOGIN</li>
+                <li><a href = "#brandDesign" class = "singleLinks hoverable">HOME</a></li>
+                <li><a href = "#briefSummaries"  class = "singleLinks hoverable">SERVICES</a></li>
+                <li><a href = "#Contact" class = "singleLinks hoverable">CONTACT</a></li>
+                <li><a href = "#AvailableCourse" class = "singleLinks hoverable">AVAILABLE COURSES</a></li>
+                <li><a class = "hoverable">LOGIN</a></li>
             </ul>
         </div>
     </nav>
@@ -313,33 +314,53 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function(){
-            const observerOptions = {
-                root: null,
-                threshold: 0.6,
-                rootMargin: "0px"
-            }
-            let observer = new IntersectionObserver(changeLinks, observerOptions) ;
+            function sectionSelected(){
+                const observerOptions = {
+                    root: null,
+                    threshold: 0.6,
+                    rootMargin: "0px"
+                }
+                let observer = new IntersectionObserver(changeLinks, observerOptions) ;
 
-            const sections = document.getElementsByClassName("cont");
-            [...sections].forEach(function(section){
-                observer.observe(section);
-            });
-
-            function changeLinks(elements,observer){
-                elements.forEach(function(element){
-                    if(element.isIntersecting){
-                        const links = document.querySelectorAll(".singleLinks")
-                        links.forEach(function(link){
-                            // Remove active class from all links
-                            link.classList.remove("active");
-                            // Add active class only to the link matching the visible secion
-                            if(link.getAttribute("href") === "#" + element.target.id){
-                                link.classList.add("active");
-                            }
-                        });
-                    }
+                const sections = document.getElementsByClassName("cont");
+                [...sections].forEach(function(section){
+                    observer.observe(section);
                 });
+
+                function changeLinks(elements,observer){
+                    elements.forEach(function(element){
+                        if(element.isIntersecting){
+                            const links = document.querySelectorAll(".singleLinks")
+                            links.forEach(function(link){
+                                // Remove active class from all links
+                                link.classList.remove("active");
+                                // Add active class only to the link matching the visible secion
+                                if(link.getAttribute("href") === "#" + element.target.id){
+                                    link.classList.add("active");
+                                }
+                            });
+                        }
+                    });
+                }
             }
+            function sectionAnimation(){
+                const sectionsToAnimate = document.querySelectorAll(".briefInfo");
+                const observerOptions = {
+                root: null, 
+                threshold: 1, 
+                rootMargin: "0px"
+                 }
+                let observer = new IntersectionObserver(function(elements, observer){
+                    elements.forEach(function(element){
+                        if(element.isIntersecting){
+                            element.target.classList.add("animate")
+                        }
+                    })
+                },observerOptions)
+                sectionsToAnimate.forEach(section => observer.observe(section));
+            }
+            sectionSelected();
+            sectionAnimation();
         });
     </script>
 </body>
