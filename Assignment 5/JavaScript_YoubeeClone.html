@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouBee Clone</title>
+    <style>
+        body{
+            margin: 0;
+            min-width: 800px;
+        }
+        #navigationBar{
+            position: fixed;
+            display: flex;
+            height: 70px;
+            width: 100%;
+            background-color: white;
+            justify-content: space-between;
+            z-index: 2;
+        }
+        .singleLinks:hover{
+            color : green;
+        }
+        #logo{
+            margin-left: 25px;
+        }
+        #links{
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+        }
+        #links-list{
+            display: flex;
+            justify-content: space-around;
+            list-style-type: none;
+        }
+        #links-list li{
+            font-size: 14px;
+            margin-left: 7px;
+            margin-right: 7px;
+        }
+        #placeHolder{
+            height: 70px;
+            background: linear-gradient( #FF3 10%, 
+            #4E4F0D 50%, #010B13 99%);
+        }
+        #brandDesign{
+            padding-top: 70px;
+            padding-bottom: 70px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #FF3 10%, 
+                             #4E4F0D 50%, #010B13 99%);
+        }
+        #mainQuote{
+            margin-left: 20px;
+            max-width: 50%;
+            /* box-sizing: border-box; */
+            color: white;
+            width: 100%;
+            height: 90%;
+        }
+        #mainQuote h1{
+            font-size: 46px;
+        }
+        .default-btn.btn-pink{
+            box-sizing: border-box;
+            background-color: #FFD400;
+            box-shadow: 0px 15px 25px 0px rgba(0, 0,0, 0.5);
+            text-decoration: none;
+        }
+        .default-btn{
+            text-transform: uppercase;
+            font-size: 14px;
+            border-radius: 2px;
+            line-height: 50px;
+            font-weight: 600;
+            display: inline-block;
+            letter-spacing: 0.5px;
+            color: white;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        #designImage{
+            max-width: 50%;
+            padding-left: 15px;
+            padding-right: 15px;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 0;
+        }
+        .heroImg{
+            max-width: 100%;
+        }
+        .icon{
+            position: absolute;
+            animation: simpleJumps 2s forwards alternate infinite; 
+            z-index: 1;
+        }
+        @keyframes simpleJumps{
+            0%{
+                transform: translateY(0px);
+            }
+            100%{
+                transform: translateY(-30px);
+            }
+        }
+        .icon1{
+            top: 0vh;
+            left: 12vw;
+            animation-delay: 0.25s;
+        }
+        .icon2{
+            top: -2vh;
+            left: 25vw;
+            animation-delay: 0.5s;
+        }
+        .icon3{
+            top: 20vh;
+            left: 15vw;
+            animation-delay: 0.3s;
+        }
+        .icon4{
+            top: 20vh;
+            left: 28vw;
+        }
+        @media screen and (max-width: 990px) {
+            #brandDesign{
+                flex-direction: column;
+            }
+            #mainQuote{
+                max-width: 70vw;
+            }
+            #designImage{
+                max-width: 70vw;
+            }
+            .icon1{
+            top: 3vh;
+            left: 18vw;
+            animation-delay: 0.25s;
+            }
+            .icon2{
+                top: 0vh;
+                left: 38vw;
+                animation-delay: 0.5s;
+            }
+            .icon3{
+                top: 33vh;
+                left: 24vw;
+                animation-delay: 0.3s;
+            }
+            .icon4{
+                top: 34vh;
+                left: 44vw;
+            }
+        }
+
+        #briefSummaries {
+            width: 100%;
+            height: 90vh; /* Ensure this height is adequate */
+            background-color: white; /* Add a background color to ensure visibility */
+            display: grid;
+            align-items: center;
+            justify-content: space-around;
+            /* padding-left: 10%;
+            padding-right: 10%; */
+            grid-template-columns: auto auto auto auto;
+        }
+
+        .briefInfo {
+            
+            height: fit-content; 
+            width: 160px;
+            position: relative;
+            border: solid 1px black;
+            padding-right: 10px;
+            padding-left: 10px;
+            animation-delay: 200ms; 
+            animation: 3s fadeInUp  forwards;
+        }
+
+        .promo-item1{
+            visibility: visible; 
+            width: 100%;
+        }
+
+        @keyframes fadeInUp{
+            0%{
+                top: 50px;
+            }
+            100%{
+                top: 0px;
+            }
+        }
+        .active{
+            color: gold;
+        }
+        a{ 
+            color : black;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <nav id = "navigationBar">
+        <div id = "logo">
+            <img src="srcs/logo-white.png" alt="YouBee.ai" width="230px">
+        </div>
+        <div id = "links">
+            <ul id = "links-list">
+                <li><a href = "#brandDesign" class = "singleLinks">HOME</a></li>
+                <li><a href = "#briefSummaries"  class = "singleLinks">SERVICES</a></li>
+                <li><a href = "#Contact" class = "singleLinks">CONTACT</a></li>
+                <li><a href = "#AvailableCourse" class = "singleLinks">AVAILABLE COURSES</a></li>
+                <li><a class = "singleLinks">LOGIN</li>
+            </ul>
+        </div>
+    </nav>
+    <div id = "placeHolder"></div>
+    <section id = "brandDesign" class = "cont">
+        <div id = "mainQuote">
+            <h1> We Don't Just Follow
+                Trends; We Create 
+                Buzz
+            </h1>
+            <h4>
+                Providing software and marketing services to companies,
+                startups and small businesses to help elevate them to the
+                next level.
+            </h4>
+            <a class = "default-btn btn-pink">Get Started</a>
+        </div>
+        <div id = "designImage">
+            <img class = "heroImg" src="srcs/hero-2.png" alt="designImage">
+            <img class = "icon icon1" src="srcs/hero-icon-1.png" alt="icon">
+            <img class = "icon icon2" src="srcs/hero-icon-1.png" alt="icon">
+            <img class = "icon icon3" src="srcs/hero-icon-1.png" alt="icon">
+            <img class = "icon icon4" src="srcs/hero-icon-1.png" alt="icon">
+        </div>
+    </section>
+    <section id = "briefSummaries" class = "cont">
+        <div class="briefInfo">
+            <div class="promo-item1" >
+                <i class="bi bi-code"></i>
+                <h3>Software Services</h3>
+                <p>Unlock the potential of your digital presence with our expertly crafted websites and cross-platform applications. We turn your ideas into interactive, user-friendly solutions that make a lasting impact.</p>
+            </div>
+        </div>
+        <div class="briefInfo">
+            <div class="promo-item1" >
+                <i class="bi bi-code"></i>
+                <h3>Software Services</h3>
+                <p>Unlock the potential of your digital presence with our expertly crafted websites and cross-platform applications. We turn your ideas into interactive, user-friendly solutions that make a lasting impact.</p>
+            </div>
+        </div>
+        <div class="briefInfo">
+            <div class="promo-item1" >
+                <i class="bi bi-code"></i>
+                <h3>Software Services</h3>
+                <p>Unlock the potential of your digital presence with our expertly crafted websites and cross-platform applications. We turn your ideas into interactive, user-friendly solutions that make a lasting impact.</p>
+            </div>
+        </div>
+        <div class="briefInfo">
+            <div class="promo-item1" >
+                <i class="bi bi-code"></i>
+                <h3>Software Services</h3>
+                <p>Unlock the potential of your digital presence with our expertly crafted websites and cross-platform applications. We turn your ideas into interactive, user-friendly solutions that make a lasting impact.</p>
+            </div>
+        </div>
+    </section>
+    <section id = "Contact" class = "cont">
+        <div id = "mainQuote">
+            <h1> We Don't Just Follow
+                Trends; We Create 
+                Buzz
+            </h1>
+            <br>
+            <h4>
+                Providing software and marketing services to companies,
+                startups and small businesses to help elevate them to the
+                next level.
+            </h4>
+            <a href="" class = "default-btn btn-pink">Get Started</a>
+        </div>
+        <div id = "designImage">
+            <img src="srcs/hero-2.png" alt="designImage">
+        </div>
+    </section>
+    <section id = "AvailableCourse" class = "cont">
+        <div id = "mainQuote">
+            <h1> We Don't Just Follow
+                Trends; We Create 
+                Buzz
+            </h1>
+            <br>
+            <h4>
+                Providing software and marketing services to companies,
+                startups and small businesses to help elevate them to the
+                next level.
+            </h4>
+            <a href="" class = "default-btn btn-pink">Get Started</a>
+        </div>
+        <div id = "designImage">
+            <img src="srcs/hero-2.png" alt="designImage">
+            
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            const observerOptions = {
+                root: null,
+                threshold: 0.6,
+                rootMargin: "0px"
+            }
+            let observer = new IntersectionObserver(changeLinks, observerOptions) ;
+
+            const sections = document.getElementsByClassName("cont");
+            [...sections].forEach(function(section){
+                observer.observe(section);
+            });
+
+            function changeLinks(elements,observer){
+                elements.forEach(function(element){
+                    if(element.isIntersecting){
+                        const links = document.querySelectorAll(".singleLinks")
+                        links.forEach(function(link){
+                            // Remove active class from all links
+                            link.classList.remove("active");
+                            // Add active class only to the link matching the visible secion
+                            if(link.getAttribute("href") === "#" + element.target.id){
+                                link.classList.add("active");
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
